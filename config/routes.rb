@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users
   root to: "breeds#index"
+  devise_for :users
+  
+  resources :breeds, only: [:index, :new, :create]
 end

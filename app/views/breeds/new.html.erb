@@ -1,0 +1,55 @@
+<div class="main">
+  <div class="form__wrapper">
+        <h2 class="page-heading">新規BREED投稿</h2>
+      <%= form_with model: @breed, url: breeds_path, local: true do |f|%>
+        <div class="field">
+            <%= f.label :image, "投稿画像" %><br />
+            <%= f.file_field :image %>
+        </div>
+
+        <div class="field">
+            <%= f.label :name, "題名" %><br />
+            <%= f.text_field :name %>
+        </div>
+
+        <div class="field">
+          <span class="indispensable">カテゴリー</span>
+        </div>
+        <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"category"}) %>
+
+        <div class="field">
+          <span class="indispensable">種類（Beetle）</span>
+        </div>
+        <%= f.collection_select(:beetle_type_id, BeetleType.all, :id, :name, {}, {class:"select-box", id:"beetle_type"}) %>
+
+        <div class="field">
+          <span class="indispensable">種類（StagーBeetle）</span>
+        </div>
+        <%= f.collection_select(:stag_beetle_type_id, StagBeetleType.all, :id, :name, {}, {class:"select-box", id:"stag_beetle_type"}) %>
+
+        <div class="field">
+            <%= f.label :parent_information, "親情報" %><br />
+            <%= f.text_field :parent_information %>
+        </div>
+
+        <div class="field">
+            <%= f.label :date, "セット日" %><br />
+            <%= f.text_field :date%>
+        </div>
+
+        <div class="field">
+            <%= f.label :result, "結果" %><br />
+            <%= f.text_area :result, class: :form__text %>
+        </div>
+
+        <div class="field">
+          <%= f.label :note, "備考欄" %><br />
+          <%= f.text_area :note, class: :form__text %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "保存する", class: :form__btn  %>
+        </div>
+      <% end %>
+  </div>
+</div>
