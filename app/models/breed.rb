@@ -14,12 +14,10 @@ class Breed < ApplicationRecord
     validates :date
     validates :result
     validates :note
+    validates :image
   end
   #beetle_type_id と stag_beetle_type_id はどちらかを選択する為、必須項目ではない
 
-  with_options numericality: { other_than: 1 } do
-    validates :category_id
-    validates :beetle_type_id
-    validates :stag_beetle_type
-  end
+  validates :category_id, numericality: { other_than: 1 } 
+  
 end
