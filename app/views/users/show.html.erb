@@ -26,7 +26,7 @@
       <% @breeds.each do |breed| %>
         <%= breed.name %>
         <%= breed.date %>
-        <%= link_to image_tag(breed.image,), "#"%>
+        <%= link_to image_tag(breed.image,), breed_path(breed.id) %>
       <% end %>
 
     </div>
