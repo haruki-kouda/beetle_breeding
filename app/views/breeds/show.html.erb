@@ -4,8 +4,8 @@
         <%= @breed.name%>
       </p>
         <div class="breed__manage">
-          <%#= link_to "編集する", "#" class: :breed__btn %>
-          <%#= link_to "削除する", "#", method: :delete,class: :breed__btn %>
+          <%= link_to "編集する", edit_breed_path(@breed.id),  class: :breed__btn %>
+          <%= link_to "削除する", breed_path(@breed.id), method: :delete,class: :breed__btn %>
         </div>
       <div class="breed__image">
         <%= image_tag @breed.image %>
@@ -17,7 +17,7 @@
             <%= @breed.category.name %>
           </p>
         </div>
-        <% if (@breed.beetle_type.id) < 1 %>
+        <% if (@breed.beetle_type.id) > 1 %>
         <div class="breed__detail">
           <p class="detail__title">種類名</p>
           <p class="detail__message">
