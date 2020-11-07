@@ -1,7 +1,7 @@
 <div class="main">
   <div class="form__wrapper">
         <h2 class="page-heading">新規BREED投稿</h2>
-      <%= form_with model: @breed, url: breeds_path, local: true do |f|%>
+      <%= form_with(model: @breed , local: true) do |f|%>
         <div class="field">
             <%= f.label :image, "投稿画像" %><br />
             <%= f.file_field :image %>
