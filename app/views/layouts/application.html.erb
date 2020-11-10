@@ -8,37 +8,38 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,700,900&display=swap" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
   </head>
 
-  <body>
-    <header class="header">
-      <div class="nav">
-          <div class="nav__left">
-            <%= link_to "Beetle Breeding", root_path %>
-          </div>
-          <% if user_signed_in? %>
-             <div class="name">
-              <%= link_to "BREEDER #{current_user.nickname}", user_path(current_user.id)%>
-            </div> 
-          <% end %>
-
-          <% if user_signed_in? %>
-             <div class="nav__right">
-              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: :nav__btn %>
-              <%= link_to "New Breed", new_breed_path, class: :nav__btn %>
-            </div> 
-          <% else %>
-            <div class="nav__right">
-              <%= link_to "ログイン", new_user_session_path, class: :nav__btn %>
-              <%= link_to "新規登録", new_user_registration_path, class: :nav__btn %>
-            </div>
-          <% end %>
+<body>
+  <header>
+    <div class="nav-left">
+      <%= link_to "Beetle Breeding", root_path,class: :title %>
+    </div>
+      
+    <% if user_signed_in? %>
+      <div class="nav-right">
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: :nav__btn %>
+        <%= link_to "New Breed", new_breed_path, class: :nav__btn %>
+      </div> 
+    <% else %>
+     <div class="nav-right">
+        <%= link_to "ログイン", new_user_session_path, class: :nav__btn %>
+        <%= link_to "新規登録", new_user_registration_path, class: :nav__btn %>
       </div>
-    </header>
-    <%= yield %>
-    <footer class="footer">
-      <p class="copyright">Copyright © BEETLI BREEDING 2020.</p>
-    </footer>
-  </body>
+    <% end %>
+    
+  </header>
+
+  <% if user_signed_in? %>
+      <div class="name">
+        <%= link_to "〜ようこそBREEDER #{current_user.nickname}〜", user_path(current_user.id)%>
+      </div> 
+      
+  <% end %>
+  <%= yield %>
+  <footer>
+    <p class="copyright">Copyright © BEETLI BREEDING 2020.</p>
+  </footer>
+</body>
 </html>

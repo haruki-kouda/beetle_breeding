@@ -1,62 +1,60 @@
-<main class="main">
- <div class="breed__wrapper">
-      <p class="breed__hedding">
-        <%= @breed.name%>
+<main>
+ <p class="page-heading">
+   <%= @breed.name%>
+ </p>
+  <div class="breed__manage">
+    <%= link_to "編集する", edit_breed_path(@breed.id),  class: :breed__btn %>
+    <%= link_to "削除する", breed_path(@breed.id), method: :delete,class: :breed__btn %>
+    <%= link_to '幼虫データ', '#' , class: :breed__btn %> 
+  </div>
+  <div class="breed__image">
+    <%= image_tag @breed.image.variant(resize: '700x700') %>
+  </div>
+   <div class="breed__body">
+    <div class="breed__detail">
+      <p class="detail__title">カテゴリー</p>
+      <p class="detail__message">
+      <%= @breed.category.name %>
       </p>
-        <div class="breed__manage">
-          <%= link_to "編集する", edit_breed_path(@breed.id),  class: :breed__btn %>
-          <%= link_to "削除する", breed_path(@breed.id), method: :delete,class: :breed__btn %>
-        </div>
-      <div class="breed__image">
-        <%= image_tag @breed.image %>
-      </div>
-      <div class="breed__body">
-        <div class="breed__detail">
-          <p class="detail__title">カテゴリー</p>
-          <p class="detail__message">
-            <%= @breed.category.name %>
-          </p>
-        </div>
-        <% if (@breed.beetle_type.id) > 1 %>
-        <div class="breed__detail">
-          <p class="detail__title">種類名</p>
-          <p class="detail__message">
-            <%= @breed.beetle_type.name %>
-          </p>
-        </div>
-        <% else %>
-        <div class="breed__detail">
-          <p class="detail__title"></p>
-          <p class="detail__message">
-            <%= @breed.stag_beetle_type.name %>
-          </p>
-        </div>
-        <% end %>
-        <div class="breed__detail">
-          <p class="detail__title">親情報</p>
-          <p class="detail__message">
-            <%= @breed.parent_information %>
-          </p>
-        </div>
-        <div class="breed__detail">
-          <p class="detail__title">セット日</p>
-          <p class="detail__message">
-            <%= @breed.date %>
-          </p>
-        </div>
-        <div class="breed__detail">
-          <p class="detail__title">結果</p>
-          <p class="detail__message">
-            <%= @breed.result %>
-          </p>
-        </div>
-        <div class="breed__detail">
-          <p class="detail__title">備考欄</p>
-          <p class="detail__message">
-            <%= @breed.note %>
-          </p>
-        </div>
-        <%#= link_to '幼虫データ', '#' %> 
-      </div>
+    </div>
+  <% if (@breed.beetle_type.id) > 1 %>
+    <div class="breed__detail">
+      <p class="detail__title">種類名</p>
+      <p class="detail__message">
+      <%= @breed.beetle_type.name %>
+      </p>
+    </div>
+  <% else %>
+    <div class="breed__detail">
+      <p class="detail__title"></p>
+      <p class="detail__message">
+      <%= @breed.stag_beetle_type.name %>
+      </p>
+    </div>
+   <% end %>
+    <div class="breed__detail">
+      <p class="detail__title">親情報</p>
+      <p class="detail__message">
+      <%= @breed.parent_information %>
+      </p>
+    </div>
+    <div class="breed__detail">
+      <p class="detail__title">セット日</p>
+      <p class="detail__message">
+      <%= @breed.date %>
+      </p>
+    </div>
+    <div class="breed__detail">
+      <p class="detail__title">結果</p>
+      <p class="detail__message">
+      <%= @breed.result %>
+      </p>
+    </div>
+    <div class="breed__detail">
+      <p class="detail__title">備考欄</p>
+      <p class="detail__message">
+      <%= @breed.note %>
+      </p>
+    </div>
   </div>
 </main>
