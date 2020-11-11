@@ -5,10 +5,9 @@
   <div class="breed__manage">
     <%= link_to "編集する", edit_breed_path(@breed.id),  class: :breed__btn %>
     <%= link_to "削除する", breed_path(@breed.id), method: :delete,class: :breed__btn %>
-    <%= link_to '幼虫データ', '#' , class: :breed__btn %> 
   </div>
   <div class="breed__image">
-    <%= image_tag @breed.image.variant(resize: '700x700') %>
+    <%= image_tag @breed.image.variant(resize: '500x500') %>
   </div>
    <div class="breed__body">
     <div class="breed__detail">

@@ -34,6 +34,7 @@ a {
   color: #3b4043;
 }
 
+
 /* ヘッダー */
 body {
   min-height: 100vh;
@@ -241,6 +242,7 @@ footer {
 
 .users-breed{
   text-align: center;
+  margin-top: 40px;
 }
 
 .user__image{

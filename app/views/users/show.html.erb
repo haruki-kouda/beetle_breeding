@@ -2,18 +2,19 @@
   <div class="show-heading">  <%= "#{@user.nickname}の BREED 情報"%></div> 
   <div class="heading">
     <div class="user-show"> 
-      <h2 class="page-heading"><%= "BREEDER" %> </h2>
-      <p >名前</p>
-       <%= @user.nickname %>
-      <p>ブリード歴</p>
-      <%= "#{@user.breeding_history}年" %>
+      <h2 class=""><%= "BREEDER" %> </h2>
+      <p >名前
+       <%= @user.nickname %></p>
+      <p>ブリード歴
+      <%= "#{@user.breeding_history}年" %></p>
       <p>プロフィール</p>
        <%= @user.profile %>
+      <%= link_to '幼虫データ', '#' , class: :name %> 
     </div>
   
-      <div class="page1-heading">
-        <%= "投稿内容  一覧表示" %> 
-      </div>
+    <div class="page1-heading">
+      <%= "投稿内容  一覧表示" %> 
+    </div>
   </div>
 
   <div class="users-breed">
