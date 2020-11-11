@@ -1,55 +1,66 @@
-<div class="main">
-  <div class="form__wrapper">
-        <h2 class="page-heading">新規BREED投稿</h2>
+<main>
+  <div class="new_breed">
+    <div class="page-heading">新規BREED投稿</div>
+    <div class="new">
       <%= form_with(model: @breed , local: true) do |f|%>
         <div class="field">
-            <%= f.label :image, "投稿画像" %><br />
-            <%= f.file_field :image %>
+          投稿画像
+          <span class="up-name">必須</span>
         </div>
+         <%= f.file_field :image %>
 
         <div class="field">
-            <%= f.label :name, "題名" %><br />
-            <%= f.text_field :name %>
+          題名 (編集可)
+          <span class="up-name">必須</span>
         </div>
+        <%= f.text_field :name %>
 
         <div class="field">
-          <span class="indispensable">カテゴリー</span>
+         カテゴリー
+         <span class="up-name">必須</span>
         </div>
         <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"category"}) %>
 
+        <p class="page-heading２">※カテゴリーの選択内容で種類はどちらかを選択して下さい</p>
+
         <div class="field">
-          <span class="indispensable">種類（Beetle）</span>
+          種類（Beetle）
         </div>
         <%= f.collection_select(:beetle_type_id, BeetleType.all, :id, :name, {}, {class:"select-box", id:"beetle_type"}) %>
 
         <div class="field">
-          <span class="indispensable">種類（StagーBeetle）</span>
+          種類（StagーBeetle）
         </div>
         <%= f.collection_select(:stag_beetle_type_id, StagBeetleType.all, :id, :name, {}, {class:"select-box", id:"stag_beetle_type"}) %>
 
         <div class="field">
-            <%= f.label :parent_information, "親情報" %><br />
-            <%= f.text_field :parent_information %>
+           親情報(編集可)
+           <span class="up-name">必須</span>
         </div>
+        <%= f.text_field :parent_information %>
 
         <div class="field">
-            <%= f.label :date, "セット日" %><br />
-            <%= f.text_field :date%>
+          セット日(編集可)
+          <span class="up-name">必須</span>
         </div>
+        <%= f.text_field :date , placeholder:"例）2019-09-11"%>
 
         <div class="field">
-            <%= f.label :result, "結果" %><br />
-            <%= f.text_area :result, class: :form__text %>
+         結果(編集可)
+         <span class="up-name">必須</span>
         </div>
+        <%= f.text_area :result, class: :form__text ,placeholder:"初投稿時は割り出し予定日を記載" %>
 
         <div class="field">
-          <%= f.label :note, "備考欄" %><br />
-          <%= f.text_area :note, class: :form__text %>
+        備考欄(編集可)
+        <span class="up-name">必須</span>
         </div>
+        <%= f.text_area :note, class: :form__text ,placeholder:"例1）マットの水分量：やや多め...例２）温度設定：25度など"%>
 
         <div class="actions">
-          <%= f.submit "保存する", class: :form__btn  %>
+          <%= f.submit "投稿する", class: :form__btn  %>
         </div>
       <% end %>
+    </div>
   </div>
-</div>
+</main>
