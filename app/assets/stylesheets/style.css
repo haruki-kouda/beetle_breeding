@@ -186,7 +186,7 @@ footer {
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin-bottom: 8px;
+  margin-bottom: 3px;
 }
 .detail__title{
   font-size: 20px;
