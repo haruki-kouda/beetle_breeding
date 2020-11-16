@@ -1,7 +1,34 @@
+<nav>
+  <ul class="list-group ml-1">
+      <li class="list-group-item list-group-item-action list-group-item-secondary active mt-5 ">このサイトの目的</li>
+      <li class="list-group-item list-group-item-action list-group-item-secondary active mt-1 ">使用ガイド</li>
+      <li class="list-group-item list-group-item-action list-group-item-secondary active mt-1">飼育マニュアル</li>
+      <li class="list-group-item list-group-item-action list-group-item-secondary active mt-1">みんなの投稿</li>
+    <% if user_signed_in? %>
+      <li >
+      <%= link_to "My ページ", user_path(current_user.id), class: :"list-group-item list-group-item-action list-group-item-secondary active mt-1" %> 
+      </li>
+      <li>
+      <%= link_to "NEW BREED", new_breed_path, class: :"list-group-item list-group-item-action list-group-item-secondary active mt-1" %>
+      </li>
+    <% end %>
+  </ul>
+</nav>
+
 <main>
-  <div class="top-image">
-    <div class="main-image">
-      <%= image_tag("beetle_images/main.png") %>
+
+<div class="carousel slide d-block mx-auto align-middle " data-ride="carousel" style="width:600px">
+  <div class="carousel-inner">
+    <div class=" carousel-item active ">
+      <%= image_tag("beetle_images/beetle2.png") %>
+    </div>
+    <div class="carousel-item">
+      <img src="slide2.png" alt="Second slide">
+    </div>
+    <div class="carousel-item">
+      <img src="slide3.png" alt="Third slide">
     </div>
   </div>
+</div>
+
 </main>

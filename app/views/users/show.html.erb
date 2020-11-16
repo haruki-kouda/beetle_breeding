@@ -1,25 +1,22 @@
-<main>
-  <div class="show-heading">  <%= "#{@user.nickname}の BREED 情報"%></div> 
-  <div class="heading">
-    <div class="user-show"> 
-      <h2 class=""><%= "BREEDER" %> </h2>
+
+   <%= "#{@user.nickname}の BREED 情報"%>
+  
+    
+      <%= "BREEDER" %> 
       <p >名前
        <%= @user.nickname %></p>
       <p>ブリード歴
       <%= "#{@user.breeding_history}年" %></p>
       <p>プロフィール</p>
        <%= @user.profile %>
-       <%#= binding.pry %>
       <p>
-      <%= link_to '幼虫データ', '#' , class: :name %> </p>
-    </div>
+     
+    
   
-    <div class="page1-heading">
+   
       <%= "投稿内容  一覧表示" %> 
-    </div>
-  </div>
-
-  <div class="users-breed">
+   
+  
     <ul class='item-lists'>
         <% @breeds.each do |breed| %>
        <li class="breed-show">
@@ -35,7 +32,4 @@
         <% end %>
       </li>
     </ul>
-  </div>
- 
- 
-</main>
+  
