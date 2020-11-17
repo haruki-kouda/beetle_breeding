@@ -4,12 +4,12 @@ body {
   min-height: 100vh;
   display: grid;
   grid-template:
-      " header header header header header" 100px
+      " header header header header header " 100px
       "  left  ...... center center center " 1fr
-      "footer footer footer footer footer " 50px
-      / 200px auto 1fr  auto;
-      background-image: url("beetle_images/back.png");
-      
+      " footer footer footer footer footer " 50px
+      / 250px auto 1fr  auto;
+      background-image: url("back.png");
+     
 }
 header {
   grid-area: header;
@@ -27,6 +27,27 @@ footer {
 
 .navbar-brand{
   font-size: 30px;
+}
+
+.top-img{
+  display: block;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.user-title{
+  margin: 0 250px 20px 0;
+  font-size: 40px;
+  font-family: 'Lobster13Regular', Helvetica, sans-serif;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: #2c272733 3px 3px 3px;
+/*text stroke*/
+  -webkit-text-stroke: 4px rgba(0, 0, 0, .6);
+}
+.new-user{
+  width: 400px;
+  margin: 0 auto;
 }
 
 .new-title{
@@ -56,6 +77,112 @@ footer {
   width: 450px;
 }
 
+.us-title{
+  font-family: 'Lobster13Regular', Helvetica, sans-serif;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: #2c272733 3px 3px 3px;
+/*text stroke*/
+  -webkit-text-stroke: 4px rgba(0, 0, 0, .6);
+}
+.us-image{
+  width: 300px;
+  height: 300px;
+}
+
+.breed-contents {
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10vh 0;
+}
+
+.breed-lists {
+  width: 100vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.breed-lists>.list {
+  width: 37vh;
+  padding: 1vw;
+ 
+}
+
+.breed-img-content {
+  position: relative;
+}
+
+.breed-img {
+  width: 33vh;
+  height: 33vh;
+}
+
+.breed-card{
+  color: black;
+  font: bold;
+}
+
+.item-show {
+  width: 80vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ 
+}
+
+.item-box {
+  width: 70vw;
+  padding: 1vh 13vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.item-box>.name {
+  text-align: center;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.item-box-img {
+  
+  width: 40vw;
+  min-height: 500px;
+
+}
+
+.item-btn {
+  color: black;
+}
+
+.item-explain-box {
+  font-size: 18px;
+  margin: 40px 0px;
+}
+
+.detail-table {
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+.detail-item {
+  width: 20%;
+  background-color: #eee;
+  border: 1px solid #dedede;
+  font-size: 14px;
+  text-align: center;
+}
+
+.detail-value {
+  width: 80%;
+  background-color: #eee;
+  padding: 20px;
+  border: 1px solid #dedede;
+  font-size: 14px;
+}
 
 
 

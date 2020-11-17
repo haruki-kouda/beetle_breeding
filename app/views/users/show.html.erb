@@ -1,35 +1,39 @@
+<nav>
+   <div class="card text-white bg-secondary mb-3 mt-5 ml-2" styl= "width: 400px;">
+    <div class="card-header text-center"><%= "#{@user.nickname}の BREED 情報"%> </div>
+    <div class="card-body">
+      <div class="card-text mt-1">名前<%= @user.nickname %></div>
+      <div class="card-text mt-3">BREED歴<%= "#{@user.breeding_history}年" %></div>
+      <div class="card-text"><p>プロフィール</p> <%= @user.profile %> </div>
+    </div>
+</nav>
 
-   <%= "#{@user.nickname}の BREED 情報"%>
-  
+
+<main>
+<div class="us-all">
+  <div class="us-title text-center">
+  <h1> <%= "投稿内容  一覧表示" %> </h1>
+  </div>
     
-      <%= "BREEDER" %> 
-      <p >名前
-       <%= @user.nickname %></p>
-      <p>ブリード歴
-      <%= "#{@user.breeding_history}年" %></p>
-      <p>プロフィール</p>
-       <%= @user.profile %>
-      <p>
-     
-    
-  
-   
-      <%= "投稿内容  一覧表示" %> 
-   
-  
-    <ul class='item-lists'>
-        <% @breeds.each do |breed| %>
-       <li class="breed-show">
-        <p>
-        <%= breed.name %>
-        </p>
-        <p>
+    <div class='breed-contents'>
+    <ul class="breed-lists ">
+      <% @breeds.each do |breed| %>
+      <li class="list ">
+        <%= link_to breed_path(breed.id) do %>
+       
+        <div class="breed-card ">
+        <h3 class='breed-name text-center font-weight-bold'>
+          <%= breed.name %>
+        </h3>
+        <div class='breed-date text-center'>
         <%= breed.date %>
-        </P>
-        <div class="user__image">
-        <%= link_to image_tag(breed.image,), breed_path(breed.id) %>
         </div>
-        <% end %>
+        <div class="breed-imag-content">
+        <%= image_tag breed.image, class: "breed-img" %></div>
       </li>
+        <% end %>
+      <% end %>
     </ul>
-  
+    </div>
+<div>
+</main>

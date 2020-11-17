@@ -1,8 +1,11 @@
+
+
+
 <main>
-    <div class="page-heading">ユーザー新規登録</div>
-    <div class="new-user">
-        <%= form_with model: @user, url: user_registration_path , local: true do |f| %>
-        <%#= render "devise/shared/error_messages", resource: resource %>
+  <div class="user-title">ユーザー新規登録</div>
+  <div class="new-user">
+    <%= form_with model: @user, url: user_registration_path , local: true do |f| %>
+     <%#= render "devise/shared/error_messages", resource: resource %>
 
       <div class="field">
        メールアドレス
@@ -38,10 +41,10 @@
         プロフィール
       <span class="up-name">必須</span>
       </div>
-      <%= f.text_area :profile, class: :form__text %>
+      <%= f.text_area :profile %>
 
       <div class="actions">
-        <%= f.submit "新規登録", class: :form__btn  %>
+        <%= f.submit "新規登録", class: :" btn btn-secondary" %>
       </div>
       <% end %>
     </div>

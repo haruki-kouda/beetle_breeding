@@ -1,37 +1,46 @@
+<nav>
+  <ul class="list-group ml-1">
+      <li class="list-group-item list-group-item-action list-group-item-secondary active mt-5">このサイトの目的</li>
+      <li class="list-group-item list-group-item-action list-group-item-secondary active mt-1">使用ガイド</li>
+      <li class="list-group-item list-group-item-action list-group-item-secondary active mt-1">飼育マニュアル</li>
+      <li class="list-group-item list-group-item-action list-group-item-secondary active mt-1">みんなの投稿</li>
+    <% if user_signed_in? %>
+      <li >
+      <%= link_to "My ページ", user_path(current_user.id), class: :"list-group-item list-group-item-action list-group-item-secondary active mt-1" %> 
+      </li>
+      <li>
+      <%= link_to "NEW BREED", new_breed_path, class: :"list-group-item list-group-item-action list-group-item-secondary active mt-1" %>
+      </li>
+    <% end %>
+  </ul>
+</nav>
+
 <main>
-  <div class="form__wrapper">
-    <diV class="page-heading">編集BREED投稿</div>
-     <div class="edit">
-      <%= form_with model: @breed, url: breed_path(@breed.id), local: true do |f|%>
-        <div class="field">
-          題名
-        </div>
-        <%= f.text_field :name %>
+    <div class="new-title"  style="width: 450px;">編集内容</div>
+
+    <div class="new-breed" style="width: 500px;">
+      <%= form_with(model: @breed , local: true) do |f|%>
         
-        <div class="field">
-          親情報
-        </div>
+
+        <div class="field">題名</div>
+        <%= f.text_field :name %>
+
+        <div class="field">親情報</div>
         <%= f.text_field :parent_information %>
 
-        <div class="field">
-          セット日
-        </div>
-        <%= f.text_field :date%>
+        <div class="field">セット日</div>
+        <%= f.text_field :date %>
 
-        <div class="field">
-          結果
-        </div>
+        <div class="field">結果</div>
         <%= f.text_area :result, class: :form__text %>
 
-        <div class="field">
-          備考欄
-        </div>
+        <div class="field">備考欄</div>
         <%= f.text_area :note, class: :form__text %>
 
         <div class="actions">
-          <%= f.submit "保存する", class: :form__btn  %>
+          <%= f.submit "編集する", class: :"  btn btn-secondary" %>
         </div>
       <% end %>
     </div>
-  </div>
+ 
 </main>
