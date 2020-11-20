@@ -1,45 +1,55 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Beetle＿bleeding</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="bootstrap-reboot.css">
     <link href="style.css" rel="stylesheet">
   </head>
 
 <body>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
   <header>
-    <div class="nav-left">
-      <%= link_to "Beetle Breeding", root_path,class: :title %>
-    </div>
-      
-    <% if user_signed_in? %>
-      <div class="nav-right">
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: :nav__btn %>
-        <%= link_to "New Breed", new_breed_path, class: :nav__btn %>
-      </div> 
-    <% else %>
-     <div class="nav-right">
-        <%= link_to "ログイン", new_user_session_path, class: :nav__btn %>
-        <%= link_to "新規登録", new_user_registration_path, class: :nav__btn %>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark mt-3 mb-3">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav4" aria-controls="navbarNav4" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <%= link_to "Beetle Breeding", root_path,class: :"navbar-brand  " %>
+      <div class="collapse navbar-collapse justify-content-end">
+        <ul class="navbar-nav">
+        <% if user_signed_in? %>
+          <li class="nav-item active">
+            <%= link_to "新規投稿", new_breed_path, class: :"nav-link" %>
+           </li>
+            <li class="nav-item active">
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: :"nav-link" %>
+            </li>
+        <% else %>  
+            <li class="nav-item active">
+              <%= link_to "ログイン", new_user_session_path, class:  :"nav-link" %>
+            </li>
+            <li class="nav-item active">
+              <%= link_to "新規登録", new_user_registration_path, class: :"nav-link" %>
+            </li>
+        <% end %>
+        </ul>
       </div>
-    <% end %>
-    
+    </nav>
   </header>
-
-  <% if user_signed_in? %>
-      <div class="name">
-        <%= link_to "〜ようこそBREEDER #{current_user.nickname}〜", user_path(current_user.id)%>
-      </div> 
-      
-  <% end %>
+  
   <%= yield %>
+
   <footer>
-    <p class="copyright">Copyright © BEETLI BREEDING 2020.</p>
+  <div class="card-footer text-center bg-light fixed-bottom">
+    Copyright © BEETLE BREEDING 2020.
+  </div>
   </footer>
 </body>
 </html>

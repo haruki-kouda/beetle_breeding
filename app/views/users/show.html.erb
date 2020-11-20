@@ -1,41 +1,41 @@
-<main>
-  <div class="show-heading">  <%= "#{@user.nickname}の BREED 情報"%></div> 
-  <div class="heading">
-    <div class="user-show"> 
-      <h2 class=""><%= "BREEDER" %> </h2>
-      <p >名前
-       <%= @user.nickname %></p>
-      <p>ブリード歴
-      <%= "#{@user.breeding_history}年" %></p>
-      <p>プロフィール</p>
-       <%= @user.profile %>
-       <%#= binding.pry %>
-      <p>
-      <%= link_to '幼虫データ', '#' , class: :name %> </p>
-    </div>
-  
-    <div class="page1-heading">
-      <%= "投稿内容  一覧表示" %> 
+<nav>
+  <div class="card  text-center " style="width: 19rem;" style="height: 300px;">
+    <div class="card-body">
+      <h5 class="card-title font-weight-bold "><%= "#{@user.nickname}の BREED 情報"%></h5>
+      <h6 class="card-subtitle mt-1 text-d ">BREED歴：<%= "#{@user.breeding_history}年" %></h6>
+      <h5 class="card-title font-weight-bold mt-4">プロフィール</h5>
+      <h6 class="card-text text-wrap "><%= @user.profile %></h6>
+      <a href="#" class="btn btn-outline-light">編集する</a>
+      <a href="#" class="btn btn-outline-light">幼虫データー</a>
     </div>
   </div>
+</nav>
 
-  <div class="users-breed">
-    <ul class='item-lists'>
-        <% @breeds.each do |breed| %>
-       <li class="breed-show">
-        <p>
-        <%= breed.name %>
-        </p>
-        <p>
-        <%= breed.date %>
-        </P>
-        <div class="user__image">
-        <%= link_to image_tag(breed.image,), breed_path(breed.id) %>
-        </div>
-        <% end %>
-      </li>
-    </ul>
+<main>
+<div class="us-all">
+  <div class="us-title text-center ">
+  <h1> <%= "投稿内容  一覧表示" %> </h1>
   </div>
- 
- 
+    
+    <div class='breed-contents'>
+    <ul class="breed-lists">
+      <% @breeds.each do |breed| %>
+      <li class="list">
+        <%= link_to breed_path(breed.id) do %>
+       
+        <div class="breed-card ">
+        <h3 class='breed-name text-center font-weight-bold'>
+          <%= breed.name %>
+        </h3>
+        <div class='breed-date text-center'>
+        <%= breed.date %>
+        </div>
+        <div class="breed-imag-content">
+        <%= image_tag breed.image, class: "breed-img" %></div>
+      </li>
+        <% end %>
+      <% end %>
+    </ul>
+    </div>
+<div>
 </main>

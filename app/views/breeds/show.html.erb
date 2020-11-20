@@ -1,59 +1,68 @@
+<nav>
+  <ul class="list-group ml-2 mt-5">
+      <li class="list-group-item list-group-item-action list-group-item-secondary active mt-5 ">このサイトの目的</li>
+      <li class="list-group-item list-group-item-action list-group-item-secondary active mt-1 ">使用ガイド</li>
+      <li class="list-group-item list-group-item-action list-group-item-secondary active mt-1">飼育マニュアル</li>
+      <li class="list-group-item list-group-item-action list-group-item-secondary active mt-1">みんなの投稿</li>
+    <% if user_signed_in? %>
+      <li >
+      <%= link_to "My ページ", user_path(current_user.id), class: :"list-group-item list-group-item-action list-group-item-secondary active mt-1" %> 
+      </li>
+      <li>
+      <%= link_to "NEW BREED", new_breed_path, class: :"list-group-item list-group-item-action list-group-item-secondary active mt-1" %>
+      </li>
+    <% end %>
+  </ul>
+</nav>
+
 <main>
- <p class="page-heading">
-   <%= @breed.name%>
- </p>
-  <div class="breed__manage">
-    <%= link_to "編集する", edit_breed_path(@breed.id),  class: :breed__btn %>
-    <%= link_to "削除する", breed_path(@breed.id), method: :delete,class: :breed__btn %>
-  </div>
-  <div class="breed__image">
-    <%= image_tag @breed.image.variant(resize: '500x500') %>
-  </div>
-   <div class="breed__body">
-    <div class="breed__detail">
-      <p class="detail__title">カテゴリー</p>
-      <p class="detail__message">
-      <%= @breed.category.name %>
-      </p>
+<div class="item-show">
+  <div class="item-box">
+    <div class="name">
+      <%= @breed.name %>
+    <%= link_to '商品の編集', edit_breed_path(@breed.id), method: :get, class: "item-btn" %>
+    <%= link_to '削除', breed_path(@breed.id), method: :delete, class:'item-btn' %>
     </div>
-  <% if (@breed.beetle_type.id) > 1 %>
-    <div class="breed__detail">
-      <p class="detail__title">種類名</p>
-      <p class="detail__message">
-      <%= @breed.beetle_type.name %>
-      </p>
+        
+    <div class='item-img-content'>
+      <%= image_tag @breed.image,class:"item-box-img" %>
     </div>
-  <% else %>
-    <div class="breed__detail">
-      <p class="detail__title"></p>
-      <p class="detail__message">
-      <%= @breed.stag_beetle_type.name %>
-      </p>
-    </div>
-   <% end %>
-    <div class="breed__detail">
-      <p class="detail__title">親情報</p>
-      <p class="detail__message">
-      <%= @breed.parent_information %>
-      </p>
-    </div>
-    <div class="breed__detail">
-      <p class="detail__title">セット日</p>
-      <p class="detail__message">
-      <%= @breed.date %>
-      </p>
-    </div>
-    <div class="breed__detail">
-      <p class="detail__title">結果</p>
-      <p class="detail__message">
-      <%= @breed.result %>
-      </p>
-    </div>
-    <div class="breed__detail">
-      <p class="detail__title">備考欄</p>
-      <p class="detail__message">
-      <%= @breed.note %>
-      </p>
-    </div>
-  </div>
+    
+  
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-item">カテゴリー</th>
+          <td class="detail-value"><%= @breed.category.name%></td>
+        </tr>
+        <% if (@breed.beetle_type.id) > 1 %>
+        <tr>
+          <th class="detail-item">種類名</th>
+          <td class="detail-value"><%= @breed.beetle_type.name %></td>
+        </tr>
+        <% else %>
+        <tr>
+          <th class="detail-item">種類名</th>
+          <td class="detail-value"><%= @breed.stag_beetle_type.name %></td>
+        </tr>
+         <% end %>
+        <tr>
+          <th class="detail-item">親情報</th>
+          <td class="detail-value"><%= @breed.parent_information %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">セット日</th>
+          <td class="detail-value"><%= @breed.date %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">結果</th>
+          <td class="detail-value"><%= @breed.result %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">備考欄</th>
+          <td class="detail-value"><%= @breed.note %></td>
+        </tr>
+      </tbody>
+    </table>
+</div>
 </main>

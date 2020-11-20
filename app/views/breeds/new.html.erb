@@ -1,9 +1,26 @@
+<nav>
+  <ul class="list-group ml-1 mt-5">
+      <li class="list-group-item list-group-item-action list-group-item-secondary active mt-5 ">このサイトの目的</li>
+      <li class="list-group-item list-group-item-action list-group-item-secondary active mt-1 ">使用ガイド</li>
+      <li class="list-group-item list-group-item-action list-group-item-secondary active mt-1">飼育マニュアル</li>
+      <li class="list-group-item list-group-item-action list-group-item-secondary active mt-1">みんなの投稿</li>
+    <% if user_signed_in? %>
+      <li >
+      <%= link_to "My ページ", user_path(current_user.id), class: :"list-group-item list-group-item-action list-group-item-secondary active mt-1" %> 
+      </li>
+      <li>
+      <%= link_to "NEW BREED", new_breed_path, class: :"list-group-item list-group-item-action list-group-item-secondary active mt-1" %>
+      </li>
+    <% end %>
+  </ul>
+</nav>
+
 <main>
-  <div class="new_breed">
-    <div class="page-heading">新規BREED投稿</div>
-    <div class="new">
+    <div class="new-title mb-3 text-center"  style="width: 700px;">新規BREED投稿</div>
+
+    <div class="new-breed" style="width: 430px;">
       <%= form_with(model: @breed , local: true) do |f|%>
-        <div class="field">
+        <div class=" ">
           投稿画像
           <span class="up-name">必須</span>
         </div>
@@ -11,7 +28,7 @@
 
         <div class="field">
           題名 (編集可)
-          <span class="up-name">必須</span>
+          <span class='up-name'>必須</span>
         </div>
         <%= f.text_field :name %>
 
@@ -58,9 +75,9 @@
         <%= f.text_area :note, class: :form__text ,placeholder:"例1）マットの水分量：やや多め...例２）温度設定：25度など"%>
 
         <div class="actions">
-          <%= f.submit "投稿する", class: :form__btn  %>
+          <%= f.submit "投稿する", class: :"btn btn-secondary" %>
         </div>
       <% end %>
     </div>
-  </div>
+ 
 </main>

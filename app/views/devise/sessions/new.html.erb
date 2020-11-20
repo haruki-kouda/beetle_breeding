@@ -1,7 +1,23 @@
+<nav>
+  <ul class="list-group ml-1 mt-5">
+      <li class="list-group-item list-group-item-action list-group-item-secondary active mt-5 ">このサイトの目的</li>
+      <li class="list-group-item list-group-item-action list-group-item-secondary active mt-1 ">使用ガイド</li>
+      <li class="list-group-item list-group-item-action list-group-item-secondary active mt-1">飼育マニュアル</li>
+      <li class="list-group-item list-group-item-action list-group-item-secondary active mt-1">みんなの投稿</li>
+    <% if user_signed_in? %>
+      <li >
+      <%= link_to "My ページ", user_path(current_user.id), class: :"list-group-item list-group-item-action list-group-item-secondary active mt-1" %> 
+      </li>
+      <li>
+      <%= link_to "NEW BREED", new_breed_path, class: :"list-group-item list-group-item-action list-group-item-secondary active mt-1" %>
+      </li>
+    <% end %>
+  </ul>
+</nav>
+
 <main>
-  <div class="form__wrapper">
-    <div class="page-heading">ユーザーログイン</div>
-    <div class="user-sign">
+  <div class="user-title">ユーザーログイン</div>
+    <div class="new-user">
       <%= form_with model: @user, url:  user_session_path, local: true do |f| %>
       <div class="field">
         <%= f.label :email, "メールアドレス" %><br />
@@ -12,7 +28,7 @@
         <%= f.password_field :password, autocomplete: "current-password" %>
       </div>
       <div class="actions">
-        <%= f.submit "ログイン", class: :form__btn  %>
+        <%= f.submit "ログイン", class: :" btn btn-secondary mt-4" %>
       </div>
       <% end %>
     </div>
