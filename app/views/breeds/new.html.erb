@@ -16,11 +16,11 @@
 </nav>
 
 <main>
-    <div class="new-title"  style="width: 450px;">新規BREED投稿</div>
+    <div class="new-title mb-3 text-center"  style="width: 700px;">新規BREED投稿</div>
 
-    <div class="new-breed" style="width: 500px;">
+    <div class="new-breed" style="width: 430px;">
       <%= form_with(model: @breed , local: true) do |f|%>
-        <div class=" a">
+        <div class=" ">
           投稿画像
           <span class="up-name">必須</span>
         </div>
@@ -75,7 +75,7 @@
         <%= f.text_area :note, class: :form__text ,placeholder:"例1）マットの水分量：やや多め...例２）温度設定：25度など"%>
 
         <div class="actions">
-          <%= f.submit "投稿する", class: :"  btn btn-secondary" %>
+          <%= f.submit "投稿する", class: :"btn btn-secondary" %>
         </div>
       <% end %>
     </div>

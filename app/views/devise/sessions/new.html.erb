@@ -16,9 +16,8 @@
 </nav>
 
 <main>
-  <div class="form__wrapper">
-    <div class="page-heading">ユーザーログイン</div>
-    <div class="user-sign">
+  <div class="user-title">ユーザーログイン</div>
+    <div class="new-user">
       <%= form_with model: @user, url:  user_session_path, local: true do |f| %>
       <div class="field">
         <%= f.label :email, "メールアドレス" %><br />
@@ -29,7 +28,7 @@
         <%= f.password_field :password, autocomplete: "current-password" %>
       </div>
       <div class="actions">
-        <%= f.submit "ログイン", class: :form__btn  %>
+        <%= f.submit "ログイン", class: :" btn btn-secondary mt-4" %>
       </div>
       <% end %>
     </div>

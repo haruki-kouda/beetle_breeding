@@ -7,7 +7,7 @@ body {
       " header header header header header " 100px
       "  left  ...... center center center " 1fr
       " footer footer footer footer footer " 50px
-      / 250px auto 1fr  auto;
+      / 230px auto 1fr  auto;
       background-image: url("back.png");
      
 }
@@ -51,11 +51,11 @@ footer {
 }
 
 .new-title{
-  margin: 0  0 30px 300px;
+  margin: 0  auto;
   font-size: 40px;
   font-family: 'Lobster13Regular', Helvetica, sans-serif;
   font-weight: bold;
-  text-align: center;
+ 
   text-shadow: #2c272733 3px 3px 3px;
 /*text stroke*/
   -webkit-text-stroke: 4px rgba(0, 0, 0, .6);
@@ -71,6 +71,7 @@ footer {
   color: #d4c2c2;
   font-size: 12px;
   font-weight: bold;
+  
 }
 
 .form__text {
@@ -99,7 +100,6 @@ footer {
 }
 
 .breed-lists {
-  width: 100vw;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -184,6 +184,9 @@ footer {
   font-size: 14px;
 }
 
+.card-body{
+  background-color: #727068;
+}
 
 
 @media screen and (max-width: 1000px) {
