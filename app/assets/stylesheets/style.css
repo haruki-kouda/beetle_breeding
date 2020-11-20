@@ -8,7 +8,7 @@ body {
       "  left  ...... center center center " 1fr
       " footer footer footer footer footer " 50px
       / 230px auto 1fr  auto;
-      background-image: url("back.png");
+      background-image: url("/images/back.png");
 }
 
 header {
