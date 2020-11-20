@@ -9,8 +9,8 @@ body {
       " footer footer footer footer footer " 50px
       / 230px auto 1fr  auto;
       background-image: url("back.png");
-     
 }
+
 header {
   grid-area: header;
 }
