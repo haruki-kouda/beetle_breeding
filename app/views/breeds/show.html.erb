@@ -20,10 +20,11 @@
   <div class="item-box">
     <div class="name">
       <%= @breed.name %>
-    <%= link_to '商品の編集', edit_breed_path(@breed.id), method: :get, class: "item-btn" %>
-    <%= link_to '削除', breed_path(@breed.id), method: :delete, class:'item-btn' %>
     </div>
-        
+    <div>
+    <%= link_to '商品の編集', edit_breed_path(@breed.id), method: :get, class: "btn btn-dark" %>
+    <%= link_to '削除', breed_path(@breed.id), method: :delete, class:'btn btn-dark' %>
+    </diV> 
     <div class='item-img-content'>
       <%= image_tag @breed.image,class:"item-box-img" %>
     </div>
